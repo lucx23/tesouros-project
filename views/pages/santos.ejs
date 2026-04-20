@@ -4,7 +4,7 @@
         <% posts.forEach(post=> { %>
             <div class="santo">
                 <% if(post.foto) { %>
-                    <img src="<%= post.foto.replace('/public', '') %>" alt="<%= post.nome %>">
+                    <img src="<%= post.foto.replace('/public', '') %>" alt="<%= post.titulo %>">
                     <% } %>
                         <h3>
                             <%= post.titulo %>
