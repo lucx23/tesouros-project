@@ -5,8 +5,12 @@ const upload = require('../middlewares/upload');
 
 // Rota para obter todos os posts
 router.get('/', async (req, res) => {
-    const posts = await Posts.findAll();
-    res.json({posts: posts}); 
+    try {
+        const posts = await Posts.findAll();
+        res.render('pages/santos', { posts });
+    } catch (error) {
+        res.status(500).send(`Erro ao carregar os santos ${error.message}`);
+    }
 });
 
 // Rota para obter um post específico por ID
