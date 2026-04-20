@@ -5,8 +5,7 @@ const PORT = process.env.PORT || 8000;
 const Post = require('./rotas/posts_rota');
 const Santos = require('./rotas/pagina_santos_rota');
 const Usuario = require('./rotas/usuario_rota');
-const { User } = require('./models');
-const { Posts } = require('./models');
+const { sequelize, User, Posts } = require('./models');
 const session = require('express-session');
 
 app.use(session({
@@ -60,6 +59,16 @@ app.get('/sobre', (req, res) => {
     res.render('pages/sobre');
 });
 
-app.listen(PORT, () => {
-    console.log(`Servidor rodando na porta ${PORT}`);
-});
+async function iniciarServidor() {
+    try {
+        await sequelize.sync();
+
+        app.listen(PORT, () => {
+            console.log(`Servidor rodando na porta ${PORT}`);
+        });
+    } catch (error) {
+        console.error('Erro ao inicializar o banco de dados:', error);
+    }
+}
+
+iniciarServidor();
