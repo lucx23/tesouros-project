@@ -9,12 +9,38 @@ const env = process.env.NODE_ENV || 'development';
 const config = require(__dirname + '/../config/config.json')[env];
 const db = {};
 
-let sequelize;
-if (config.use_env_variable) {
-  sequelize = new Sequelize(process.env[config.use_env_variable], config);
-} else {
-  sequelize = new Sequelize(config.database, config.username, config.password, config);
-}
+const createSequelizeInstance = () => {
+  const connectionUrl = process.env.DATABASE_URL || process.env.MYSQL_URL;
+
+  if (connectionUrl) {
+    return new Sequelize(connectionUrl, {
+      dialect: 'mysql',
+      logging: false,
+      dialectOptions: process.env.NODE_ENV === 'production'
+        ? {
+            ssl: {
+              require: true,
+              rejectUnauthorized: false,
+            },
+          }
+        : {},
+    });
+  }
+
+  return new Sequelize(
+    process.env.MYSQLDATABASE || config.database,
+    process.env.MYSQLUSER || config.username,
+    process.env.MYSQLPASSWORD || config.password,
+    {
+      host: process.env.MYSQLHOST || config.host,
+      port: process.env.MYSQLPORT || config.port || 3306,
+      dialect: 'mysql',
+      logging: false,
+    }
+  );
+};
+
+const sequelize = createSequelizeInstance();
 
 fs
   .readdirSync(__dirname)

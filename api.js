@@ -10,7 +10,7 @@ const { Posts } = require('./models');
 const session = require('express-session');
 
 app.use(session({
-    secret: process.env.SESSION || "troque-este-segredo-em-producao",
+    secret: process.env.SESSION_SECRET || "troque-este-segredo-em-producao",
     resave: false,
     saveUninitialized: false,
     cookie: {
