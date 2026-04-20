@@ -1,0 +1,28 @@
+<h1><a href="/">Tesouros da Igreja</a></h1>
+
+<nav>
+    <ul>
+        <li><a href="/">Início</a></li>
+        <li><a href="/santos">Santos</a></li>
+        <!-- <li><a href="/sobre">Sobre</a></li> -->
+
+        <% if (usuarioLogado) { %>
+            <li class="perfil-logout">
+                
+                <div class="img-usuario">
+                    <img src="/uploads-fotos/<%= usuarioLogado.foto %>" alt="Foto do Perfil">
+                    <span><%= usuarioLogado.nome %></span>
+                </div>
+
+                <a href="/usuario/perfil/<%= usuarioLogado.id %>" id="perfil">Perfil</a>
+                <a href="/usuario/logout" id="logout">Logout</a>
+
+            </li>
+        <% } else { %>
+            <li class="perfil-logout">
+                <a href="/usuario/login">Entrar</a></li>
+                <a href="/usuario/cadastrar">Cadastrar</a>
+            </li>
+            <% } %>
+    </ul>
+</nav>

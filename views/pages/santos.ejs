@@ -1,0 +1,19 @@
+<div>
+    <h1 style="color: var(--marrom)">Santos da Igreja Católica</h1>
+    <div class="santos">
+        <% posts.forEach(post=> { %>
+            <div class="santo">
+                <% if(post.foto) { %>
+                    <img src="<%= post.foto.replace('/public', '') %>" alt="<%= post.nome %>">
+                    <% } %>
+                        <h3>
+                            <%= post.titulo %>
+                        </h3>
+                        <p>
+                            <%= post.descricao %>
+                        </p>
+                        <a href="/santos/<%= post.id %>" class="btn">Ver Mais</a>
+            </div>
+            <% }) %>
+    </div>
+</div>

@@ -1,0 +1,13 @@
+<div class="info-usuario">
+    <h2>Informações do Usuário</h2>
+    <p><strong>Nome:</strong>
+        <%= usuario.nome %>
+    </p>
+    <p><strong>Email:</strong>
+        <%= usuario.email %>
+    </p>
+    <% if (usuario.foto) { %>
+        <p><strong>Foto:</strong></p>
+        <img src="/uploads-fotos/<%= usuario.foto %>" alt="Foto do Usuário" style="max-width: 200px;">
+        <% } %>
+</div>

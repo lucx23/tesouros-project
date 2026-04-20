@@ -1,0 +1,27 @@
+<div class="cadastro">
+    <h2>Cadastro de Usuário</h2>
+
+    <form action="/usuario/cadastrar" method="POST" enctype="multipart/form-data">
+        <div>
+            <label for="nome">Nome</label>
+            <input type="text" name="nome" placeholder="Nome Completo" required>
+        </div>
+        <div>
+            <label for="email">Email</label>
+            <input type="email" name="email" placeholder="Email" required>
+        </div>
+        <div>
+            <label for="senha">Senha</label>
+            <input type="password" name="senha" placeholder="Senha" required>
+        </div>
+        <div>
+            <label for="foto">Foto de Perfil</label>
+            <input type="file" name="foto" accept="image/*">
+        </div>
+        <button type="submit">Cadastrar</button>
+
+        <% if (error) { %>
+            <p style="color: red;"><%= error %></p>
+        <% } %>
+    </form>
+</div>

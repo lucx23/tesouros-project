@@ -1,0 +1,24 @@
+{
+  "name": "apirest",
+  "version": "1.0.0",
+  "main": "api.js",
+  "scripts": {
+    "dev": "nodemon api.js",
+    "start": "node api.js"
+  },
+  "keywords": [],
+  "author": "Lucas Gabriel",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "ejs": "^5.0.1",
+    "express": "^5.2.1",
+    "express-ejs-layouts": "^2.5.1",
+    "express-session": "^1.19.0",
+    "multer": "^2.1.1",
+    "mysql2": "^3.22.0",
+    "nodemon": "^3.1.14",
+    "sequelize": "^6.37.8"
+  }
+}

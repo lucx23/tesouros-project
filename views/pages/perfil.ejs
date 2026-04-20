@@ -1,0 +1,23 @@
+<% if (error) { %>
+    <div class="alert alert-danger" role="alert">
+        <p><%= error %></p>
+    </div>
+<% } %>
+
+<% if(usuarioLogado) { %>
+    <div class="perfil-container">
+        <h2>Perfil de <%= usuarioLogado.nome %></h2>
+        <div class="perfil-info">
+            <img src="/uploads-fotos/<%= usuarioLogado.foto %>" alt="Foto do Perfil" class="perfil-foto">
+            <div class="perfil-dados">
+                <p><strong>Nome:</strong> <%= usuarioLogado.nome %></p>
+                <p><strong>Email:</strong> <%= usuarioLogado.email %></p>
+                <!-- Adicione mais informações do perfil aqui, se necessário -->
+            </div>
+        </div>
+    </div>
+<% } else { %>
+    <div class="alert alert-warning" role="alert">
+        <p>Você precisa estar logado para acessar esta página.</p>
+    </div>
+<% } %>

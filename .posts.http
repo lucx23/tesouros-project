@@ -1,0 +1,28 @@
+GET http://localhost:8000/posts
+
+###
+
+POST http://localhost:8000/posts
+Content-Type: application/json
+
+{
+    "titulo": "Santo Antônio de Pádua",
+    "descricao": "Padroeiro dos pobres e das causas perdidas.",
+    "foto": "C:\\Users\\Pascom Toinho\\Documents\\programação\\santos\\santo-antonio-5.jpg",
+    "data_nascimento": "1195-08-15",
+    "data_falecimento": "1231-06-13",
+    "dia_liturgico": "06-13",
+    "biografia": "Santo Antônio foi um frade franciscano português conhecido por sua grande capacidade de pregação e milagres. Dedicou sua vida à evangelização e ao cuidado dos pobres, tornando-se um dos santos mais populares da Igreja Católica."
+}
+###
+
+PUT http://localhost:8000/posts/6
+Content-Type: application/json
+
+{
+    "titulo": "Santa Teresinha do Menino Jesus"
+}
+
+###
+
+DELETE http://localhost:8000/posts/1

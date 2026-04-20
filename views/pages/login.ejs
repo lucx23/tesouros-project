@@ -1,0 +1,18 @@
+<div class="form-login">
+    <h2>Entrar</h2>
+
+    <form action="/usuario/login" method="POST">
+        <div>
+            <label for="email">Email</label>
+            <input type="email" name="email" placeholder="Email" required>
+        </div>
+        <div>
+            <label for="senha">Senha</label>
+            <input type="password" name="senha" placeholder="Senha" required>
+        </div>
+        <button type="submit">Entrar</button>
+        <% if (error) { %>
+            <p style="color: red; text-align: center;"><%= error %></p>
+        <% } %>
+    </form>
+</div>
