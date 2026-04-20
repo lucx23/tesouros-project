@@ -51,7 +51,7 @@ app.get('/santos', async (req, res) => {
         const posts = await Posts.findAll();
         res.render('pages/santos', { posts });
     } catch (error) {
-        res.status(500).send('Erro ao carregar os santos');
+        res.status(500).send(`Erro ao carregar os santos ${error.message}`);
     }
 });
 
